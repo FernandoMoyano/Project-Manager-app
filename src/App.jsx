@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import TicketPage from "./pages/TicketPage";
-import NavBar from "./components/NavBar";
+import Dashboard from "../src/pages/Dashboard/Dashboard";
+import TicketPage from "../src/pages/TicketPage/TicketPage";
+import NavBar from "../src/components/NavBar/NavBar";
 const App = () => {
 	return (
 		<div className="app">

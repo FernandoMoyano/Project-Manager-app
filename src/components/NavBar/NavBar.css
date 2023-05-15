@@ -1,0 +1,22 @@
+nav {
+	height: 100vh;
+	background-color: slateblue;
+	color: aliceblue;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+nav .logo-container,
+nav .controls-container {
+	padding: 40px 25px;
+	display: flex;
+	flex-direction: column;
+}
+nav .logo-container img {
+	width: 20px;
+}
+.icon {
+	width: 30px;
+	height: 30px;
+}
