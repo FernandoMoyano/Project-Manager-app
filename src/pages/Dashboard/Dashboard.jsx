@@ -9,6 +9,7 @@ const Dashboard = () => {
 			title: "NFT Safety 101 Video",
 			Owner: "Fernando Moyano",
 			avatar: "/src/assets/images/avatar-1.svg",
+			status:"Done",
 			priority: 5,
 			progress: 40,
 			description:
@@ -33,7 +34,7 @@ const Dashboard = () => {
 			title: "Build a bot",
 			Owner: "Fernando Moyano",
 			avatar: "/src/assets/images/avatar-3.svg",
-			status: "Working on it",
+			status: "Stuck",
 			priority: 3,
 			progress: 70,
 			description: "Make a video about making a bot",

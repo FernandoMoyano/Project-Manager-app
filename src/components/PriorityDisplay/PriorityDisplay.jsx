@@ -1,8 +1,7 @@
-import "./PriorityDisplay.css"
-const PriorityDisplay = () => {
-  return (
-    <div>PriorityDisplay</div>
-  )
-}
+import "./PriorityDisplay.css";
 
-export default PriorityDisplay
+const PriorityDisplay = ({ priority }) => {
+	return <div>PriorityDisplay</div>;
+};
+
+export default PriorityDisplay;
