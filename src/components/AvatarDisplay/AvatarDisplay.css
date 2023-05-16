@@ -3,15 +3,15 @@
 	justify-content: center;
 	width: 80px;
 }
- .image-container {
-  height: 60px;
-  width: 60px;
-  border-radius: 20px;
-  overflow: hidden;
+.image-container {
+	height: 60px;
+	width: 60px;
+	border-radius: 20px;
+	overflow: hidden;
 }
 
 .imgage-container img {
-  width: 100%;
-  object-fit: contain;
-  object-position: center;
+	width: 100%;
+	object-fit: contain;
+	object-position: center;
 }
