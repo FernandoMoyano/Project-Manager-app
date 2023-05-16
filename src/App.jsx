@@ -9,8 +9,12 @@ const App = () => {
 				<NavBar />
 				<Routes>
 					<Route path="/" element={<Dashboard />} />
-					<Route path="/ticket" element={<TicketPage/>} />
-					<Route path="/ticket/:id" element={<TicketPage/>} editMode={true} />
+					<Route path="/ticket" element={<TicketPage />} />
+					<Route
+						path="/ticket/:id"
+						element={<TicketPage />}
+						editMode={true}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</div>

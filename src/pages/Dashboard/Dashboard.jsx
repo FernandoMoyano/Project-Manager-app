@@ -8,7 +8,7 @@ const Dashboard = () => {
 			color: "red",
 			title: "NFT Safety 101 Video",
 			Owner: "Fernando Moyano",
-			avatar: "",
+			avatar: "../../assets/images/avatar-1.svg",
 			status: "done",
 			priority: 5,
 			progress: 40,
@@ -21,7 +21,7 @@ const Dashboard = () => {
 			color: "red",
 			title: "Build and sell AI Model",
 			Owner: "Fernando Moyano",
-			avatar: "",
+			avatar: "../../assets/images/avatar-2.svg",
 			status: "Working on it",
 			priority: 2,
 			progress: 70,
@@ -33,7 +33,7 @@ const Dashboard = () => {
 			color: "blue",
 			title: "Build a bot",
 			Owner: "Fernando Moyano",
-			avatar: "",
+			avatar: "../../assets/images/avatar-3.svg",
 			status: "Working on it",
 			priority: 3,
 			progress: 70,
@@ -45,12 +45,29 @@ const Dashboard = () => {
 	const uniqueCategories = [
 		...new Set(tickets?.map(({ category }) => category)),
 	];
+
 	console.log(uniqueCategories);
+
 	return (
 		<div className="dashboard">
 			<h1>My Projects</h1>
 			<div className="ticket-container">
-				<TicketCard />
+				{tickets &&
+					uniqueCategories?.map((uniqueCategory, categoryIndex) => (
+						<div key={categoryIndex}>
+							<h3>{uniqueCategory}</h3>
+							{tickets
+								.filter((ticket) => ticket.category === uniqueCategory)
+								.map((filteredTicket, _index) => (
+									<TicketCard
+										key={_index}
+										id={_index}
+										color={filteredTicket.color}
+										ticket={filteredTicket}
+									/>
+								))}
+						</div>
+					))}
 			</div>
 		</div>
 	);

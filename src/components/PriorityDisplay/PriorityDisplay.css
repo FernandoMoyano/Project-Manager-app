@@ -1,0 +1,12 @@
+.priority-display {
+	display: flex;
+	justify-content: center;
+}
+.priority-display .star-container {
+	display: flex;
+}
+.priority-display .star-container h3 {
+	margin: 7px;
+	padding: 0;
+	color: rgb(167, 167, 167);
+}
