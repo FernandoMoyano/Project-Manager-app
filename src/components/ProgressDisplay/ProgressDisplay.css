@@ -3,12 +3,12 @@
 }
 .progress-bar {
 	width: 100%;
-	height: 30px;
-	background-color: rgb(158, 158, 158);
+	height: 15px;
+	background-color: #9e9e9e;
 	border-radius: 15px;
 	overflow: hidden;
 }
-.progress-bar .progress-indicator {
-	background-color: rgb(104, 104, 175);
+.progress-indicator {
+	background-color: #6868af;
 	height: 100%;
 }
