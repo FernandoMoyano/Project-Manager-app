@@ -1,5 +1,5 @@
  .delete-block {
-  background-color: rgb(221, 221, 221);
+  background-color: #dfdfdf;
   width: 50px;
   margin: 2px;
   display: flex;
@@ -8,12 +8,13 @@
 }
 
 .delete-block .delete-icon {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  background-color: rgb(61, 61, 61);
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #7c7c7c;
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgb(255,255,255);
+  cursor: pointer;
 }
