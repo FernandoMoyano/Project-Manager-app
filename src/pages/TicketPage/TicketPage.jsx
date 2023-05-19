@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./TicketPage.css"
 
 const TicketPage = () => {
 	const [formData, setFormData] = useState({
