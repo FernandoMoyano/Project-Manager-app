@@ -198,6 +198,7 @@ const TicketPage = () => {
 									<img src={formData.avatar} alt="image"/>
 								)}
 							</div>
+							
 					</section>
 				</form>
 			</div>
