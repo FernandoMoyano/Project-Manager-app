@@ -128,29 +128,76 @@ const TicketPage = () => {
 							/>
 						</div>
 
-						{/* {editMode &&  */}
-						<>
+						{editMode && (
+							<>
+								<input
+									type="range"
+									id="progress"
+									name="progress"
+									value={formData.progress}
+									min="0"
+									max="100"
+									onChange={handleChange}
+								/>
+								<label htmlFor="progress">Progress</label>
+
+								<label>Status</label>
+								<select
+									name="status"
+									value={formData.status}
+									onChange={handleChange}>
+									<option
+										selected={formData.status === "done"}
+										value="done">
+										Done
+									</option>
+									<option
+										selected={formData.status === "working on it"}
+										value="working on it">
+										Working on it
+									</option>
+									<option
+										selected={formData.status === "stuck"}
+										value="stuck">
+										Stuck
+									</option>
+									<option
+										selected={formData.status === "not started"}
+										value="donde">
+										Not Started
+									</option>
+								</select>
+							</>
+						)}
+						<input type="submit"/>
+					</section>
+
+					<section>
+					<label htmlFor="owner">Owner</label>
 							<input
-								type="range"
-								id="progress"
-								name="progress"
-								value={formData.progress}
-								min="0"
-								max="100"
+								id="Owner"
+								name="owner"
+								type="text"
 								onChange={handleChange}
+								required={true}
+								checked={formData.owner}
 							/>
-							<label htmlFor="progress">Progress</label>
-						</>
-						<label>Status</label>
-						<select
-							name="status"
-							value={formData.status}
-							onChange={handleChange}>
-							<option selected={formData.status === "done"} value="done">Done</option>
-							<option selected={formData.status === "working on it"} value="working on it">Working on it</option>
-							<option selected={formData.status === "stuck"} value="stuck">Stuck</option>
-							<option selected={formData.status === "not started"} value="donde">Not Started</option>
-						</select>
+
+							
+					<label htmlFor="avatar">Avatar</label>
+							<input
+								id="avatar"
+								name="avatar"
+								type="url"
+								onChange={handleChange}
+								required={true}
+								checked={formData.owner}
+							/>
+							<div className="img-preview">
+								{formData.avatar &&(
+									<img src={formData.avatar} alt="image"/>
+								)}
+							</div>
 					</section>
 				</form>
 			</div>
