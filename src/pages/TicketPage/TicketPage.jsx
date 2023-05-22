@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./TicketPage.css"
+import "./TicketPage.css";
 
 const TicketPage = () => {
 	const [formData, setFormData] = useState({
@@ -127,6 +127,30 @@ const TicketPage = () => {
 								checked={formData === 5}
 							/>
 						</div>
+
+						{/* {editMode &&  */}
+						<>
+							<input
+								type="range"
+								id="progress"
+								name="progress"
+								value={formData.progress}
+								min="0"
+								max="100"
+								onChange={handleChange}
+							/>
+							<label htmlFor="progress">Progress</label>
+						</>
+						<label>Status</label>
+						<select
+							name="status"
+							value={formData.status}
+							onChange={handleChange}>
+							<option selected={formData.status === "done"} value="done">Done</option>
+							<option selected={formData.status === "working on it"} value="working on it">Working on it</option>
+							<option selected={formData.status === "stuck"} value="stuck">Stuck</option>
+							<option selected={formData.status === "not started"} value="donde">Not Started</option>
+						</select>
 					</section>
 				</form>
 			</div>
