@@ -5,7 +5,6 @@ const Dashboard = () => {
 	const tickets = [
 		{
 			category: "Q1 2023",
-			color: "red",
 			title: "NFT Safety 101 Video",
 			Owner: "Fernando Moyano",
 			avatar: "/src/assets/images/avatar-1.svg",

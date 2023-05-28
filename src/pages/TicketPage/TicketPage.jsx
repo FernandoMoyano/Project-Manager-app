@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./TicketPage.css";
 
 const TicketPage = () => {
@@ -7,10 +9,21 @@ const TicketPage = () => {
 		progress: 0,
 		timestamp: new Date().toISOString(),
 	});
-	const editMode = false;
 
-	const handleSubmit = () => {
-		console.log("submited");
+	const editMode = false;
+	const navigate = useNavigate();
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		if (!editMode) {
+			const response = await axios.post("http://localhost:8000/tickets", {
+				formData,
+			});
+			const success = response.status === 200;
+			if (success) {
+				navigate("/");
+			}
+		}
 	};
 
 	const handleChange = (e) => {
@@ -84,7 +97,7 @@ const TicketPage = () => {
 								type="radio"
 								onChange={handleChange}
 								value={1}
-								checked={formData === 1}
+								checked={formData.priority == 1}
 							/>
 
 							<label htmlFor="priority-2">2</label>
@@ -94,7 +107,7 @@ const TicketPage = () => {
 								type="radio"
 								onChange={handleChange}
 								value={2}
-								checked={formData === 2}
+								checked={formData.priority == 2}
 							/>
 
 							<label htmlFor="priority-3">3</label>
@@ -104,7 +117,7 @@ const TicketPage = () => {
 								type="radio"
 								onChange={handleChange}
 								value={3}
-								checked={formData === 3}
+								checked={formData.priority == 3}
 							/>
 
 							<label htmlFor="priority-4">4</label>
@@ -114,7 +127,7 @@ const TicketPage = () => {
 								type="radio"
 								onChange={handleChange}
 								value={4}
-								checked={formData === 4}
+								checked={formData.priority == 4}
 							/>
 
 							<label htmlFor="priority-5">5</label>
@@ -124,7 +137,7 @@ const TicketPage = () => {
 								type="radio"
 								onChange={handleChange}
 								value={5}
-								checked={formData === 5}
+								checked={formData.priority == 5}
 							/>
 						</div>
 
@@ -169,36 +182,34 @@ const TicketPage = () => {
 								</select>
 							</>
 						)}
-						<input type="submit"/>
+						<input type="submit" />
 					</section>
 
 					<section>
-					<label htmlFor="owner">Owner</label>
-							<input
-								id="Owner"
-								name="owner"
-								type="text"
-								onChange={handleChange}
-								required={true}
-								checked={formData.owner}
-							/>
+						<label htmlFor="owner">Owner</label>
+						<input
+							id="Owner"
+							name="owner"
+							type="text"
+							onChange={handleChange}
+							required={true}
+							checked={formData.owner}
+						/>
 
-							
-					<label htmlFor="avatar">Avatar</label>
-							<input
-								id="avatar"
-								name="avatar"
-								type="url"
-								onChange={handleChange}
-								required={true}
-								checked={formData.owner}
-							/>
-							<div className="img-preview">
-								{formData.avatar &&(
-									<img src={formData.avatar} alt="image"/>
-								)}
-							</div>
-							
+						<label htmlFor="avatar">Avatar</label>
+						<input
+							id="avatar"
+							name="avatar"
+							type="url"
+							onChange={handleChange}
+							required={true}
+							checked={formData.owner}
+						/>
+						<div className="img-preview">
+							{formData.avatar && (
+								<img src={formData.avatar} alt="image" />
+							)}
+						</div>
 					</section>
 				</form>
 			</div>
