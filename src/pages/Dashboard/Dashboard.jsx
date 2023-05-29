@@ -1,57 +1,54 @@
+import { useState, useEffect } from "react";
 import TicketCard from "../../components/TicketCard/TicketCard";
 import "./dashboard.css";
 
 const Dashboard = () => {
-	const tickets = [
-		{
-			category: "Q1 2023",
-			title: "NFT Safety 101 Video",
-			Owner: "Fernando Moyano",
-			avatar: "/src/assets/images/avatar-1.svg",
-			status: "Done",
-			priority: 2,
-			progress: 40,
-			description:
-				"Make a video showcasing how to work with  NFTs safely, including how to know if one is not genuine",
-			timestamp: "2023-05-15T21:57:49+0000",
-		},
-		{
-			category: "Q1 2023",
-			color: "red",
-			title: "Build and sell AI Model",
-			Owner: "Fernando Moyano",
-			avatar: "/src/assets/images/avatar-2.svg",
-			status: "Working on it",
-			priority: 2,
-			progress: 70,
-			description: "Make a video about AI",
-			timestamp: "2023-05-17T21:57:49+0000",
-		},
-		{
-			category: "Q2 2023",
-			color: "blue",
-			title: "Build a bot",
-			Owner: "Fernando Moyano",
-			avatar: "/src/assets/images/avatar-3.svg",
-			status: "Stuck",
-			priority: 3,
-			progress: 70,
-			description: "Make a video about making a bot",
-			timestamp: "2023-05-20T21:57:49+0000",
-		},
-		{
-			category: "Q2 2023",
-			color: "blue",
-			title: "Build a bot",
-			Owner: "Fernando Moyano",
-			avatar: "",
-			status: "Stuck",
-			priority: 1,
-			progress: 70,
-			description: "Make a video about making a bot",
-			timestamp: "2023-05-20T21:57:49+0000",
-		},
-	];
+	const [tickets, setTickets] = useState(null);
+
+	/* Get Data */
+	/* 	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch("http://localhost:8000/tickets");
+				const data = await response.json();
+				const arrayOfKeys = Object.keys(data.data);
+				const arrayOfData = Object.values(data.data).map((key) => data[key]);
+
+				const formattedArray = [];
+
+				arrayOfKeys.forEach((key, index) => {
+					const formattedData = { ...arrayOfData[index] };
+					formattedData["documentId"] = key;
+					formattedArray.push(formattedData);
+				});
+				console.log(formattedArray);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		fetchData();
+	}, []); */
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch("http://localhost:8000/tickets");
+				const data = await response.json();
+				const arrayOfKeys = Object.keys(data.data);
+				const formattedArray = [];
+
+				arrayOfKeys.forEach((key) => {
+					const ticketData = { ...data.data[key], documentId: key };
+					formattedArray.push(ticketData);
+				});
+				setTickets(formattedArray)
+				console.log(formattedArray);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		fetchData();
+	}, []);
 
 	const colors = [
 		"rgb(255,179,186)",
@@ -65,7 +62,7 @@ const Dashboard = () => {
 		...new Set(tickets?.map(({ category }) => category)),
 	];
 
-	console.log(uniqueCategories);
+	/* console.log(uniqueCategories); */
 
 	return (
 		<div className="dashboard">
